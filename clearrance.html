@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>扫雷</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/main.js"></script>
+    <script src="js/core.js"></script>
+</head>
+<body>
+    <div id="boder_" draggable="true">
+        <div class="game_nav">
+            <div id="tit"></div>
+            <div style="float: left; color: #ffffff"><strong style="font-size: 13px">扫雷</strong></div>
+            <button class="game_button img_close" onclick="window.close()"></button>
+            <button class="game_button img_max_disabled"></button>
+            <button class="game_button img_min_disabled"></button>
+        </div>
+        <div id="game_menu">
+            <div id="game" class="mbut dropdown">
+                游戏（G）
+                <div class="dropdown-content">
+                    <div class="mbut" onclick="start_new_game(9,9,13)">简单        9×9×20</div>
+                    <div class="mbut" onclick="start_new_game(19,19,70)">中级        19×19×70</div>
+                    <div class="mbut" onclick="start_new_game(24,17,150)">困难        24×17×150</div>
+                    <div class="mbut" onclick="show_zdy()">自定义</div>
+                    <div class="mbut" onclick="show_lang()"></div>
+                </div>
+                </div>
+            <div id="help" class="mbut dropdown">
+                帮助（H）
+                <div class="dropdown-content">
+                    <div class="mbut" onclick="show_help()">游戏简介</div>
+                    <div class="mbut" onclick="show_xsjc()">新手教程</div>
+                </div>
+            </div>
+        </div>
+        <div class="game_pane" draggable="false">
+            <div class="conter">
+                <div id="rance">
+                    <div id="rance_add0" class="numb"></div>
+                    <div id="rance_add1" class="numb"></div>
+                    <div id="rance_add2" class="numb"></div>
+                </div>
+                <div id="time">
+                    <div id="time_add0" class="numb"></div>
+                    <div id="time_add1" class="numb"></div>
+                    <div id="time_add2" class="numb"></div>
+                </div>
+                <div id="main_but"><div id="face" onclick="game_reset()"></div></div>
+            </div>
+            <div class="zdy_bar">
+                <div id="zdy" class="game_pane win_alert" style="width: 200px; height: 80px;transform: translateY(100%) translateX(-50%);display: none;">
+                    <div class="game_nav">自定义</div>
+                    <input type="number" id="cbd_x" style="width: 60px" placeholder="宽">
+                    <input type="number" id="cbd_y" style=";width: 60px" placeholder="高">
+                    <input type="number" id="cbd_rance" style="width: 60px;" placeholder="地雷">
+                    <div style="position: relative; margin: 7px">
+                        <button style="position: absolute; left: 35%; transform: translateX(-50%)" onclick="start_new_game(document.getElementById('cbd_x').value, document.getElementById('cbd_y').value, document.getElementById('cbd_rance').value)" th:text="#{confirm}">确认</button>
+                        <button style="position: absolute; left: 65%; transform: translateX(-50%)" onclick="document.getElementById('zdy').style.display='none'">取消</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="bcd"></div>
+        </div>
+
+    </div>
+    <div id="xsjc" class="hlep_pane" draggable="true" style="height: auto;">
+        <div class="game_nav">
+            <div style="margin-left:5px;float: left; color: #ffffff"><strong style="font-size: 13px">新手教程</strong></div>
+            <button class="game_button img_close" onclick="windows_close('xsjc')"></button>
+            <button class="game_button img_max_disabled" disabled></button>
+            <button class="game_button img_min_disabled" disabled></button>
+        </div>
+        <div id="tips" class="conter" style="width: 160px;height: auto">请点击一个棋格以探索该区域</div>
+    </div>
+
+</body>
+</html>
